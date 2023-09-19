@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image to ASCII Art Converter</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <h1>Image to ASCII Art Converter</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Convert</button>
+    </form>
+    <pre id="asciiArt"><%- asciiArt %></pre>
+</body>
+</html>
