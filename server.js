@@ -23,7 +23,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 
     try {
         const image = await Jimp.read(req.file.buffer);
-        const asciiArt = convertToAscii(image);
+        const asciiArt = await convertToAscii(image);
 
         res.render('index', { asciiArt });
     } catch (error) {

@@ -7,7 +7,7 @@ function convertToAscii(imageBuffer) {
             const image = await Jimp.read(imageBuffer);
 
             // Resize the image to a suitable width
-            const width = 80; // Adjust the width as needed
+            const width = 200; // Adjust the width as needed
             image.resize(width, Jimp.AUTO);
 
             let asciiArt = '';
@@ -24,7 +24,7 @@ function convertToAscii(imageBuffer) {
                 const grayscale = (red + green + blue) / 3;
 
                 const asciiIndex = Math.floor((grayscale / 255) * (asciiChars.length - 1));
-                asciiArt += asciiChars[asciiIndex];
+                asciiArt += asciiChars[asciiIndex];//choose the char by the result of the gray tone of the color multiplied by the lenght of the char array minus 
 
                 if (x === image.bitmap.width - 1) {
                     asciiArt += '\n'; // Start a new line for each row
@@ -36,7 +36,7 @@ function convertToAscii(imageBuffer) {
             console.error('Error converting image to ASCII:', error);
             reject(error); ''; // Return an empty string on error
         };
-    )};
+    });
 
 }
 
